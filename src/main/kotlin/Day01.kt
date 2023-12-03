@@ -1,10 +1,12 @@
+private const val current_day = 1;
+
 fun main() {
-    val input = readDayInput(1)
-    println(dayOnePart2(input))
-    println(dayOnePart1(input))
+    val dayInput = readDayInput(current_day)
+    println(firstPart(dayInput))
+    println(secondPart(dayInput))
 }
 
-fun String.digitize(): String = when (this) {
+private fun String.digitize(): String = when (this) {
     "one" -> "1"
     "two" -> "2"
     "three" -> "3"
@@ -17,7 +19,7 @@ fun String.digitize(): String = when (this) {
     else -> this
 }
 
-fun dayOnePart2(input: List<String>): Int {
+private fun firstPart(input: List<String>): Int {
     val matcher = """(?=(\d|one|two|three|four|five|six|seven|eight|nine))""".toRegex()
 
     val clibrationValues = input.map { row ->
@@ -30,7 +32,7 @@ fun dayOnePart2(input: List<String>): Int {
     return clibrationValues.sum()
 }
 
-fun dayOnePart1(input: List<String>): Int {
+private fun secondPart(input: List<String>): Int {
     val digits = input.map { row ->
         row.filter { char -> char.isDigit() }
     }
