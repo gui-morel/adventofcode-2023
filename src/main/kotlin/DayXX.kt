@@ -1,9 +1,11 @@
 private const val current_day = 0;
 
+private val input = readDayInput(current_day)
+private val example = readDayExample(current_day)
+
 fun main() {
-    val dayInput = readDayInput(current_day)
-    println(firstPart(dayInput))
-    println(secondPart(dayInput))
+    println(firstPart(input))
+    println(secondPart(input))
 }
 
 private fun firstPart(input: List<String>): Int {
