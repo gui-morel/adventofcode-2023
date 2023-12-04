@@ -101,7 +101,5 @@ private fun secondPart(input: List<String>): Int {
         line.mapIndexed { x, char -> parser.parse(char, Position(x, y)) }
         parser.end()
     }
-    return parser.gears()
-        .map { (first, second) -> first.number * second.number }
-        .sum()
+    return parser.gears().sumOf { (first, second) -> first.number * second.number }
 }
